@@ -9,6 +9,7 @@ require("dotenv").config();
 
 // middlewares
 app.use(cors());
+app.use(express.json());
 
 // connect to database
 dbConnect();

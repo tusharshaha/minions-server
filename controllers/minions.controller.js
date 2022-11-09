@@ -31,13 +31,13 @@ module.exports.createMinions = async (req, res) => {
 }
 module.exports.updateMinion = async (req, res) => {
     try {
-        const name = req.params.name;
+        const id = req.params.id;
         const update = req.body;
         const option = { runValidators: true, new: true };
-        await Minion.findOneAndUpdate({ name }, update, option);
+        await Minion.findByIdAndUpdate(id, update, option);
         res.status(200).json({
             success: true,
-            message: "successfully created minion",
+            message: "successfully updated minion",
         })
     } catch (err) {
         res.status(404).json({
@@ -48,8 +48,8 @@ module.exports.updateMinion = async (req, res) => {
 }
 module.exports.deleteMinion = async (req, res) => {
     try {
-        const name = req.params.name;
-        await Minion.findOneAndDelete({ name })
+        const id = req.params.id;
+        await Minion.findOneAndDelete(id)
         res.status(200).json({
             success: true,
             message: "successfully deleted minion",

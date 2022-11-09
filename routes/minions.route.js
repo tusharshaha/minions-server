@@ -6,7 +6,7 @@ router.route("/")
     .get(getAllMinions)
     .post(createMinions);
 
-router.route("/:name")
+router.route("/:id")
     .patch(updateMinion)
     .delete(deleteMinion)
 
