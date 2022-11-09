@@ -49,7 +49,7 @@ module.exports.updateMinion = async (req, res) => {
 module.exports.deleteMinion = async (req, res) => {
     try {
         const id = req.params.id;
-        await Minion.findOneAndDelete(id)
+        await Minion.findByIdAndDelete(id);
         res.status(200).json({
             success: true,
             message: "successfully deleted minion",
